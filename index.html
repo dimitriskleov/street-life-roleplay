@@ -134,16 +134,8 @@
     </div>
 
     <script>
-        // Encrypt webhook URL using a simple encryption (for demonstration)
-        const encryptWebhook = (url) => {
-            return btoa(url.split('').reverse().join(''));
-        };
-
-        const decryptWebhook = (encrypted) => {
-            return atob(encrypted).split('').reverse().join('');
-        };
-
-        const WEBHOOK_ENCRYPTED = encryptWebhook("https://discord.com/api/webhooks/1320826444363857980/zSFnR0X7CiCElWKtgTJYXD0LPCCX5XGQQMEWBF59y6-gdp7J1yUg9yRy2kM0-pQIVCq-");
+        // Remove encryption for now to make sure the webhook URL is correct
+        const WEBHOOK_URL = "https://discord.com/api/webhooks/1320826444363857980/zSFnR0X7CiCElWKtgTJYXD0LPCCX5XGQQMEWBF59y6-gdp7J1yUg9yRy2kM0-pQIVCq-";
 
         document.getElementById('receipt').addEventListener('change', function(e) {
             const file = e.target.files[0];
@@ -165,6 +157,7 @@
             const paysafe = document.getElementById('paysafe').value;
             const receiptFile = document.getElementById('receipt').files[0];
 
+            // Basic validation check
             if (!discord || !paysafe || !receiptFile) {
                 alert('Please fill in all fields');
                 return;
@@ -172,8 +165,6 @@
 
             const reader = new FileReader();
             reader.onload = async function(e) {
-                const webhookUrl = decryptWebhook(WEBHOOK_ENCRYPTED);
-                
                 const payload = {
                     username: "Donation Bot",
                     embeds: [{
@@ -192,14 +183,17 @@
                             }
                         ],
                         image: {
-                            url: e.target.result
+                            url: e.target.result // Set the image URL to the base64 file data
                         },
                         timestamp: new Date().toISOString()
                     }]
                 };
 
                 try {
-                    const response = await fetch(webhookUrl, {
+                    // Log payload to inspect if data is correct
+                    console.log("Sending payload:", JSON.stringify(payload));
+
+                    const response = await fetch(WEBHOOK_URL, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -215,8 +209,9 @@
                         throw new Error('Failed to send donation notification');
                     }
                 } catch (error) {
+                    // Log the error message for debugging
+                    console.error("Error submitting donation:", error);
                     alert('Error submitting donation. Please try again later.');
-                    console.error(error);
                 }
             };
 
